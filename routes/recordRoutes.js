@@ -18,4 +18,10 @@ router.get("/category-summary", authorize(["admin", "analyst"]), recordControlle
 // RECENT
 router.get("/recent", authorize(["admin", "analyst"]), recordController.getRecent);
 
+// UPDATE (admin only)
+router.put("/:id", authorize(["admin"]), recordController.updateRecord);
+
+// DELETE (admin only)
+router.delete("/:id", authorize(["admin"]), recordController.deleteRecord);
+
 module.exports = router;

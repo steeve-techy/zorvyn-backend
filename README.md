@@ -1,33 +1,29 @@
-# 💰 Finance Dashboard Backend API
+💰 Finance Dashboard Backend API
 
-A backend system built using Node.js, Express, and MongoDB to manage financial transactions with role-based access control and analytics.
+A backend system built using Node.js, Express, and MongoDB to manage financial transactions with role-based access control, user status management, and analytics.
 
----
+🚀 Features
 
-## 🚀 Features
+User Management (admin, analyst, viewer)
+User Status Control (active / inactive users)
+Financial Records (income & expense tracking)
+Full CRUD Operations (Create, Read, Update, Delete)
+Filtering Support (by type and category)
+Role-based Access Control
+Dashboard APIs:
+Total income, expense, balance
+Category-wise summary
+Recent transactions
+Pagination support (page & limit)
+Filtering support (by type and category)
+User Status Control (active / inactive users)
 
-* User Management (admin, analyst, viewer)
-* Financial Records (income & expense tracking)
-* Role-based Access Control
-* Dashboard APIs:
+🛠 Tech Stack
+Node.js
+Express.js
+MongoDB (Mongoose)
 
-  * Total income, expense, balance
-  * Category-wise summary
-  * Recent transactions
-
----
-
-## 🛠 Tech Stack
-
-* Node.js
-* Express.js
-* MongoDB (Mongoose)
-
----
-
-## 📂 Project Structure
-
-```
+📂 Project Structure
 controllers/
 models/
 routes/
@@ -35,66 +31,48 @@ middleware/
 config/
 app.js
 server.js
-```
 
----
-
-## ⚙️ Setup Instructions
-
-```
+⚙️ Setup Instructions
 npm install
 npx nodemon server.js
-```
+🔐 Role-Based Access
+Admin → Full access (CRUD + management)
+Analyst → View + analytics
+Viewer → Read-only
 
----
-
-## 🔐 Role-Based Access
-
-* Admin → Full access
-* Analyst → View + analytics
-* Viewer → Read-only
-
----
-
-## 🌐 API Endpoints
-
-### Users
-
-* POST /api/users
-* GET /api/users
-
-### Records
-
-* POST /api/records (admin only)
-* GET /api/records
-
-### Dashboard
-
-* GET /api/records/summary
-* GET /api/records/category-summary
-* GET /api/records/recent
-
----
-
-## 📊 Sample Output
-
-```
+🌐 API Endpoints
+Users
+POST /api/users
+GET /api/users
+Records
+POST /api/records (admin only)
+GET /api/records
+PUT /api/records/ (admin only)
+DELETE /api/records/ (admin only)
+Filtering
+GET /api/records?type=income
+GET /api/records?category=Food
+GET /api/records?type=expense&category=Food
+Dashboard
+GET /api/records/summary
+GET /api/records/category-summary
+GET /api/records/recent
+📊 Sample Output
 {
   "totalIncome": 5000,
   "totalExpense": 3000,
   "netBalance": 2000
 }
-```
 
----
-
-## 💡 Notes
-
-* Role is passed via headers:
-  `role: admin / analyst / viewer`
-* Clean modular architecture used
-* Aggregation APIs implemented for analytics
-
+💡 Notes
+Role is passed via headers:
+role: admin / analyst / viewer
+Inactive users are restricted from accessing APIs
+Clean modular architecture used
+Aggregation APIs implemented for analytics
+Filtering enables dynamic querying of records
+Supports pagination for efficient data handling
+Inactive users are restricted from accessing APIs
 
 ## 📸 Screenshots
 
